@@ -1,0 +1,1 @@
+export interface Metric { agency: string; section_count: number; word_count: number; }

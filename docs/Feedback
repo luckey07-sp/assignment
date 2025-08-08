@@ -1,0 +1,12 @@
+Tech Specs used for this project
+
+- Frontend => Angular 16
+- Backend => NestJs (efficient, reliable, and scalable server-side applications with Node.js and TypeScript)
+- Database => SQLLite (Initially plan to use mySQL)
+
+Feedback
+This assignment was a great opportunity to work with both frontend and backend integration,
+ API consumption, and data visualization. It aligns well with my experience in full‑stack 
+ development, especially in building backend services and creating clean, user‑friendly UIs. 
+ The setup and environment configuration took a fair amount of time since I started from 
+ scratch, but overall it was an engaging and valuable exercise.

@@ -1,0 +1,98 @@
+<h1>Dashboard</h1>
+
+<!-- Word Counts Table -->
+<div class="card">
+  <h2>Word Count per Agency</h2>
+  <button (click)="refreshData()">Refresh from eCFR API</button>
+  <table>
+  <thead>
+    <tr>
+      <th>Agency</th>
+      <th>Word Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="isLoading">
+      <td colspan="2">Loading...</td>
+    </tr>
+    <tr *ngFor="let row of wordCounts ?? []">
+      <td>{{ row.name }}</td>
+      <td>{{ row.wordCount | number }}</td>
+    </tr>
+    <tr *ngIf="!isLoading && wordCounts.length === 0">
+      <td colspan="2">No data available</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<br/>
+
+<!-- Checksums Table -->
+<h2>Checksums</h2>
+<table *ngIf="checksums?.length > 0; else noChecksums" border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Agency</th>
+      <th>Checksum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of checksums">
+      <td>{{ row.agency }}</td>
+      <td>{{ row.checksum }}</td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noChecksums>
+  <p>No checksum data available.</p>
+</ng-template>
+
+
+<!-- History Table -->
+<h2>History</h2>
+<table *ngIf="history?.length > 0; else noHistory" border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Agency</th>
+      <th>Change Date</th>
+      <th>Changes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of history">
+      <td>{{ row.agency }}</td>
+      <td>{{ row.change_date | date: 'mediumDate' }}</td>
+      <td>{{ row.changes }}</td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noHistory>
+  <p>No history data available.</p>
+</ng-template>
+
+
+<!-- Volatility Score Table -->
+<h2>Volatility</h2>
+<table border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Agency</th>
+      <th>Sections</th>
+      <th>Recent Changes</th>
+      <th>Volatility Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of volatility">
+      <td>{{ row.agency }}</td>
+      <td>{{ row.sections }}</td>
+      <td>{{ row.recent_changes }}</td>
+      <td>{{ row.volatility_score }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Back to Home -->
+<br />
+<a routerLink="/" class="btn">Back to Home</a>

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": false,
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {},
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
